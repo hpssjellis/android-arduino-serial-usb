@@ -61,23 +61,28 @@ cd $wow4
 #phonegap plugin add https://github.com/fabiomig/serialport-plugin.git
 
 
-phonegap platform add android
 
 phonegap plugin add https://github.com/xseignard/cordovarduino.git
+phonegap platform add android
 
 
 cd ..
 cd temp-files
 
 
-cp serial_communication.css /home/ubuntu/workspace/$wow4/www/css/serial_communication.css
+#cp serial_communication.css /home/ubuntu/workspace/$wow4/www/css/serial_communication.css
 
-cp serial_communication.html /home/ubuntu/workspace/$wow4/www/serial_communication.html
+#cp serial_communication.html /home/ubuntu/workspace/$wow4/www/serial_communication.html
 
 
-cp serial_communication.js /home/ubuntu/workspace/$wow4/www/js/serial_communication.js
+#cp serial_communication.js /home/ubuntu/workspace/$wow4/www/js/serial_communication.js
 
-cp index.js /home/ubuntu/workspace/$wow4/www/js/index.js
+#cp index.js /home/ubuntu/workspace/$wow4/www/js/index.js
+
+
+cp index.html /home/ubuntu/workspace/$wow4/www/index.html
+
+
 
 cd ..
 
@@ -148,9 +153,13 @@ fi
 
 
 
+echo "this line must be in the config.xml"
+echo "<gap:plugin name="fr.drangies.cordova.serial" />"
 
+echo "And this should be in the AndroidManifest.xml"
+echo " <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" /></intent-filter>"
 
-
+echo "The last part shows where </intent-filter>"
 
 
 
