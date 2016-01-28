@@ -25,8 +25,8 @@
       function myGo(){
       serial.requestPermission({
                vid: '2b04',
-               pid: 'c006',
-               driver: 'FtdiSerialDriver' // or any other
+               pid: 'c006'//,
+              // driver: 'FtdiSerialDriver' // or any other
             },
             function success(){
                 write_to_screen("Success Permission", "green");
@@ -84,8 +84,8 @@ document.getElementById('response_div').innerHTML = '<font color=' + clr + '>' +
     serial.registerReadCallback(
         function success(data){
             var view = new Uint8Array(data);
-            console.log(view);
-            write_to_screen("Serial Read Callback", "green");
+           // console.log(view);
+           // write_to_screen("Serial Read Callback", "green");
 
             var str = "";
             var arr = [];
@@ -132,7 +132,7 @@ serial.requestPermission({
                 serial.write(
                     myToSend,
                     function(successMessage) {
-                        alert(successMessage);
+                        //alert(successMessage);
                     },
                     errorCallback
                 );
