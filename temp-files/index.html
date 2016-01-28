@@ -115,7 +115,7 @@
 
       
 function myWriteOne(){
-    alert('start')
+   
     var errorCallback = function(message) {
     alert('Error: ' + message);
 };
@@ -142,7 +142,7 @@ serial.requestPermission({
     },
     errorCallback
 );
-      alert('Done')
+      
       
   }    
       
@@ -155,9 +155,9 @@ serial.requestPermission({
   <body>
     <h1>Example of an serial usb</h1>
    <input type=button value="connect" onclick="{
-      alert('start')
+     // alert('start')
       myGo()
-      alert('back')
+     // alert('back')
    }"><br>
    <input type=button value="close" onclick="{
       myClose()
