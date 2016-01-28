@@ -113,7 +113,37 @@
   }
 
       
+function myWriteOne(){
+    alert('start')
+    var errorCallback = function(message) {
+    alert('Error: ' + message);
+};
+
+serial.requestPermission({
+               vid: '2b04',
+               pid: 'c006',
+               driver: 'FtdiSerialDriver' // or any other
+            },
+    function(successMessage) {
+        serial.open(
+            {baudRate: 9600},
+            function(successMessage) {
+                serial.write(
+                    '1',
+                    function(successMessage) {
+                        alert(successMessage);
+                    },
+                    errorCallback
+                );
+            },
+            errorCallback
+        );
+    },
+    errorCallback
+);
+      alert('Done')
       
+  }    
       
       
       
@@ -135,6 +165,12 @@
       myRead()
    }"><br>
 
+   <input type=button value="write 1" onclick="{
+      myWriteOne()
+   }"><br>
+
+
+  
     
     wow any alerts?
     <a href="serial_communication.html">serial_communication.html<a>
