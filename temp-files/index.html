@@ -39,9 +39,74 @@
             }
         );
         
-      
-        
     }
+      
+  
+  
+  function myClose(){
+      
+              serial.close(
+            function success(){
+                alert("Connection Closed, Successfully");
+            }, 
+            function error(){
+                alert("Error occured while Closing the Connection");
+            }
+        );
+      
+      
+  }    
+    
+    
+    
+    
+    function write_to_screen(msg, clr){
+    $("#response_div").append("<p style='color:" + clr + "'>" + msg + "</p>");
+    $("#response_div").scrollTop = $("#response_div").scrollHeight ;
+    $("#response_div").animate({scrollTop: $("#response_div").prop("scrollHeight")}, 1);
+}
+
+  function myRead(){
+
+    var container_div = $('#container_div').height();
+    remaining_height = parseInt($(window).height() - container_div - 100);
+    $('#response_div').height(remaining_height);
+
+    serial.registerReadCallback(
+        function success(data){
+            var view = new Uint8Array(data);
+            console.log(view);
+            write_to_screen("Serial Read Callback", "green");
+
+            var str = "";
+            var arr = [];
+            if(view.length >= 1){
+                for(var i=0; i<view.length; i++){
+
+                    // str += String.fromCharCode(view[i]);
+
+                    var temp_str = String.fromCharCode(view[i]);
+                    var str_esc = escape(temp_str);
+                    str += unescape(str_esc);
+                    
+                    if(view[i] == 13){
+                        //Write to Screen, Push to Array and Initialze the scope Variable again.
+                        write_to_screen(str, "black");
+                        arr.push(str);
+                        str = "";
+                    }
+                }
+            }
+        },
+        function error(){
+            new Error("Failed to register read callback");
+        }
+      );
+  }
+
+      
+      
+      
       
       
       
@@ -54,9 +119,17 @@
       alert('start')
       myGo()
       alert('back')
-   }">
+   }"><br>
+   <input type=button value="close" onclick="{
+      myClose()
+   }"><br>
+   <input type=button value="start read" onclick="{
+      myRead()
+   }"><br>
 
     
     wow any alerts?
     <a href="serial_communication.html">serial_communication.html<a>
-    
+    <div id=container_div>Containing
+       <div id="response_div">output here</div>
+    </div>
