@@ -69,16 +69,17 @@
     
     
     function write_to_screen(msg, clr){
-    $("#response_div").append("<p style='color:" + clr + "'>" + msg + "</p>");
-    $("#response_div").scrollTop = $("#response_div").scrollHeight ;
-    $("#response_div").animate({scrollTop: $("#response_div").prop("scrollHeight")}, 1);
+        document.getElementById('response_div').innerHTML += msg + '<br>'
+  //  $("#response_div").append("<p style='color:" + clr + "'>" + msg + "</p>");
+  //  $("#response_div").scrollTop = $("#response_div").scrollHeight ;
+  //  $("#response_div").animate({scrollTop: $("#response_div").prop("scrollHeight")}, 1);
 }
 
   function myRead(){
 
-    var container_div = $('#container_div').height();
-    remaining_height = parseInt($(window).height() - container_div - 100);
-    $('#response_div').height(remaining_height);
+   // var container_div = $('#container_div').height();
+   // remaining_height = parseInt($(window).height() - container_div - 100);
+   // $('#response_div').height(remaining_height);
 
     serial.registerReadCallback(
         function success(data){
@@ -121,8 +122,8 @@ function myWriteOne(){
 
 serial.requestPermission({
                vid: '2b04',
-               pid: 'c006',
-               driver: 'FtdiSerialDriver' // or any other
+               pid: 'c006'//,
+              // driver: 'FtdiSerialDriver' // or any other
             },
     function(successMessage) {
         serial.open(
