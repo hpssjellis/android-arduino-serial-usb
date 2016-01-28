@@ -2,6 +2,9 @@
 android-arduino-serial-usb-using phonegap and Cloud9 with auto load android sdk makes a webpage with the .apk for imediate download
 
 
+1. Basic use of cloud9 at http://c9.io is useful
+2. make a custom workspace using this github link. (not more than 3 dashes in your workspace name please)
+
 1. right-click "setup.sh" --> select "run" (or bash setup.sh)
 2. click terminal, click url --> iopen (or Menu Preview--> Preview Running Application)
 3. install app on phone from download (settings-->security-->unknown Sources)
@@ -14,10 +17,14 @@ android-arduino-serial-usb-using phonegap and Cloud9 with auto load android sdk 
 
 
 
+.
 
-a04-SimpleSerialApp-rocksetta.sh
+.
 
-Notyet working
+.
+
+
+a04-SimpleSerialApp-rocksetta.sh   is not yet working
 
 still needs js files at 
 
