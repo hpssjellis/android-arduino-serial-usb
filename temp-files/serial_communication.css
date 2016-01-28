@@ -1,0 +1,38 @@
+body{
+    margin: 0px;
+    padding: 10px;
+    text-align: center;
+}
+
+h1{
+	color: #1284FF;
+}
+
+input{
+	width: 100%;
+	text-align: center;
+}
+
+button{
+	width: 100%;
+}
+
+#response_div{
+	margin: auto;
+	height:auto;  
+	max-height: 500px;
+	overflow-y: auto; 
+	border: 1px solid #DDDDDD; 
+	text-align: left;
+	padding: 2px;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 2px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
