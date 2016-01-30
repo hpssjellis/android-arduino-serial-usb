@@ -270,32 +270,8 @@ echo "All done"
 echo "On the cloud9 menu look for Preview --> Preview running Application to load your .apk on your Android 4.4 KitKat device"
 
 
+
 echo "Or just click this link and open the web page"
 
-
-
-
-y="${HOSTNAME//[^-]}"
-echo "$y"
-echo "${#y}"
-echo $HOSTNAME
-
-if [ ${#y} = 4 ]; then
-    IFS=- read var1 var2 var3 var4 var5 <<< $HOSTNAME
-    echo "http://$var2-$var3-$var4-$var1.c9users.io"
-fi
-
-
-if [ ${#y} = 3 ]; then
-    IFS=- read var1 var2 var3 var4 <<< $HOSTNAME
-    echo "http://$var2-$var3-$var1.c9users.io"
-fi
-
-if [ ${#y} = 2 ]; then
-    IFS=- read var1 var2 var3 <<< $HOSTNAME
-    echo "http://$var2-$var1.c9users.io"
-fi
-
-
-
+echo "http://$C9_HOSTNAME"
 
